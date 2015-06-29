@@ -1,0 +1,24 @@
+<style>
+div{
+	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+</style>
+<div class="panel panel-default">
+	<div class='panel-heading'>Pending Member Requests({{number_of_requests}})</div>
+		<div class='panel-body'>
+			<div ng-repeat="request in requestList">
+				<div>
+			      <div>Name:{{request.fname}} {{request.lname}}</div><br>
+			      <div>Position:{{request.position}}</div><br>
+			      <div>Expreience:{{request.prevexperience}}</div><br>
+			  </div>
+			  <div class='pull right'>
+				  <button ng-click='acceptedPlayers(request.lname)'>Accept {{request.fname}}</button>
+				  <button ng-click='rejectedPlayers(request.lname)'>Reject {{request.fname}}</button>
+				</div>
+			  <hr>
+			</div>
+		</div>
+	</div>
+</div>

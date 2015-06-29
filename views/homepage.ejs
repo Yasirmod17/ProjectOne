@@ -1,0 +1,84 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Mohammed Ibrahim">
+  <link rel="shortcut icon" type='image/png' href='../favicon.png'/>
+	<title>Amherst club soccer</title>
+	<link href="/stylesheets/bootstrap.css" rel="stylesheet">
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel='stylesheet'>
+</head>
+<body ng-app='myApp'>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" >
+  <div class="container" color="purple">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#home">ACFC</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <!--li ><a href="#home">Home</a></li-->
+        <li><a href="#about">About</a></li>
+        <li>
+          <role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Teams <span class="caret"></span>
+              <ul class="dropdown-menu">
+                <li><a href="#women">Women</a></li>
+                <li><a href="#men">Men</a></li>
+              </ul>
+        </li>
+        <!--li>Teams
+          <ul>
+              <li><a href="#women">Women</a></li>
+              <li><a href="#men">Men</a></li>
+              
+            </li>
+          </ul>
+        </li-->
+        <li><a href='#request'>Join the Team</a><li>
+        <li><a href='#captain'>Captain LogIn</a><li>
+        <li><a href='#contactus'>Contact Us</a><li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="starter-template">
+    <!--h1>THIS IS THE AMHERST COLLEGE CLUB SOCCER WEBPAGE</h1>
+    <p class="lead">PS: This is under construction</p-->
+  <div ng-view=""></div>
+</div>
+  <!--div>
+    <div ng-repeat="player in players" >
+            <p>{{player.name}}</p>
+      </span>
+    <div>
+</div></.container -->
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-custom">
+  <div class="container">
+    <section position='fixed' id='copywright'>
+      Copyright © 2015 Acfc.com Was Created By 
+      <a href='https://www.facebook.com/mohammedyi'>Mohammed Ibrahim</a>
+    </section>
+  </div>
+</nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
+<script src="/javascripts/ang.js"></script>
+</body>
+</html>

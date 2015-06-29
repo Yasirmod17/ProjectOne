@@ -1,0 +1,44 @@
+<style>
+#centerdiv{
+     position:absolute;
+  
+     top:35%;
+     left:35%;
+     margin:-100px 0 0 -100px;
+}
+.panel-heading {
+    text-align: center;
+    background-color: #8B6A8B !important;
+}
+</style>
+
+<div id='centerdiv'>
+	<div class="panel panel-default">
+		<div class='panel-heading'>We'd love your feedback</div>
+			<div class='panel-body'>
+				<form method='post'>
+					<div class='form-group'>
+						Your Email:<input type="email" name="email" ng-model="emailBody.from" required><br>
+					</div>
+					<!--div ng-show="form.$submitted || form.uEmail.$touched">
+		      		<span ng-show="form.uEmail.$error.required">Please input your email.</span>
+		      		<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+    			</div-->
+					<div class='form-group'>
+						Subject:<input type="text" name="subject" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
+					</div>
+					<div class='form-group'>
+						<div>Enter feedback here:<div>
+					<textarea rows="4" cols="60" name="content"  ng-model='emailBody.text'>
+							Enter feedback here</textarea>
+					</div>
+					<div class='panel-footer clearfix'>
+						<div class='pull right'>
+							<input type='Submit' ng-click='sendEmail()' value='send Feedback'>
+						</div>
+					<div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

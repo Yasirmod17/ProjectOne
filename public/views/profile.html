@@ -1,0 +1,55 @@
+<style >
+.thumbnails {
+    text-align:center;
+}
+#centerdiv{
+     position:absolute;
+  
+     top:35%;
+     left:30%;
+     margin:-100px 0 0 -100px;
+}
+.panel-heading {
+    text-align: center;
+    background-color: #8B6A8B !important;
+}
+img{
+	height: 300px;
+	width:300px;
+	float: right;
+}
+span{
+	float:left;
+}
+</style>
+<div ng-controller='game3'>
+	<div class="panel panel-default" style="width: 600px" id='centerdiv'>
+		<div class='panel-heading' >Player Profile</div>
+			<div class='panel-body'>
+			  
+			  <img src="../images/{{playerId}}.jpg" alt='{{playerId}}'>
+			  <span>
+				  <p>Name: {{name}}<p>
+				  <p>Class year: {{classyear}}</p>
+				  <p>Position:{{position}}</P>
+				  <p>Hobbies:{{hobbies}}</p>
+				</span>
+			</div>
+		</div>
+	</div>
+
+<!--div class="row">                   FOR THUMBNAIL INSTEAD
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../images/{{playerId}}.jpg" alt="{{playerId}}">
+      <div class="caption">
+        <h3>Name:{{name}}</h3>
+        <p>Class year: {{classyear}}</p>
+				  <p>Position:{{position}}</P>
+				  <p>Hobbies:{{hobbies}}</p>
+      </div>
+    </div>
+  </div>
+</div-->
+
+</div>

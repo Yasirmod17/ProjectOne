@@ -1,0 +1,23 @@
+
+<style>
+body{
+background-image: url('../../images/women.jpg');
+  background-size: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-opacity: 0.4
+}
+h2{
+  color: white;
+}
+</style>
+<div><p></p></div>
+<div>
+  <p><h2 alingn='center' color='purple'>Captains: Angie johnson and Shirley Duquène</h2><p>
+  <!--span>
+        <img src="../images/women.jpg" height="500" width="600">
+      </span-->
+  <div ng-repeat="player in players">
+      <h7 class="right"><a ng-href="#profile/{{player.fname}}">{{player.fname}} {{player.lname}}<h7>
+  </div>
+</div>

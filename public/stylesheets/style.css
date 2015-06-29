@@ -1,0 +1,48 @@
+ .css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+  
+body {
+  background-image: url('../../images/home.gif');
+  background-size: cover;
+  padding: 50px;
+  padding-bottom: 70px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-opacity: 0.4
+}
+h1 {text-align:center;}
+h3{text-align: right}
+p {text-align:center;}
+.navbar-custom {
+    color: white;
+    background-color: #8B6A8B;
+}
+a {
+  color: purple;
+}
+li {
+    display: inline;
+}
+
+/*.imageContainer {
+	
+    position: relative;
+    overflow: hidden;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+} 
+.imageContainer img {
+	size: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.1;
+}*/
+.right{text-align: right}
+.left{text-align: left}

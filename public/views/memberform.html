@@ -1,0 +1,73 @@
+<style>
+.panel-heading {
+    text-align: center;
+    background-color: #8B6A8B !important;
+}
+
+ .css-form input.ng-invalid.ng-touched {
+    background-color: red;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: red;
+  }
+</style>
+<div><p>We would love you to join!</p></div>
+<div class="panel panel-default">
+<div class='panel-heading'>MEMBERSHIP REQUEST FORM</div>
+<div class='panel-body'>
+<form role='form'>
+ <div class='form-group'>First Name       : <input type="text" name="fname" ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required></div>
+ <div class='form-group'>
+ Last  Name       :<input type="text" name="lname" ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required></div>
+ <div class='form-group'>
+ Class Year       : <input type="text" name="classyear" ng-model="user.classyear" required>
+</div>
+<div class='form-group'>
+ Sex              : <select ng-model='user.sex'>
+                    <option value='Male'>Male</option>
+                    <option value='Female'>Female</option>
+                    </select>
+</div>
+<div class='form-group'>
+ Hobbies          : <input type="text" name="hobbies" ng-model="user.hobbies">
+</div>
+<div class='form-group'>
+ Preferred Position:<select ng-model='user.position'>
+                    <option value='GK'>Goal keeper</option>
+                    <option value='CB'>Center Back</option>
+                    <option value='RB'>Right Back</option>
+                    <option value='LB'>Left Back</option>
+                    <option value='CM'>Center mid</option>
+                    <option value='DM'>Defensive Mid</option>
+                    <option value='AM'>Attacking Mid</option>
+                    <option value='WF'>Wing Foward</option>
+                    <option value='CF'>Center Foward</option>
+                    <option value='UT'>Utility Player</option>
+                  </select>
+</div>
+<div class='form-group'>
+  Team:<select ng-model='user.team' required>
+                    <option value='men'>Men</option>
+                    <option value='women'>Women</option>
+                  </select>
+</div>
+<div class='form-group'>
+    <input type="checkbox" name="previousexperience?" value="yes" ng-model="experienceyes"> I have previous experience
+</div>
+    <div ng-show="experienceyes" ng-hide="experienceno">
+        <form>
+        Tell us about your previous experience:
+          <input type="text" name="experience" ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150"required><br>
+          <!--input type="submit" value="Send Info" -->
+        </form>
+    </div>
+    <div class='panel-footer clearfix panel-heading'>
+      <div class='pull right'>
+        <input type='Submit' ng-click='postInfo()' value='Submit info'>
+      </div>
+    </div>
+  <!--input type="submit" value="Send Info" ng-hide='experienceyes' ng-show='experienceno'-->
+</form>
+</div>
+</div>
