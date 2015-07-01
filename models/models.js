@@ -22,5 +22,11 @@ var requestSchema=new Schema({
 
 });
 
+var captainSchema=new Schema({
+	captainUname: String,
+	captainPword: String
+});
+
 mongoose.model('players', playerSchema);
 mongoose.model('memberRequest', requestSchema);
+mongoose.model('captain',captainSchema);

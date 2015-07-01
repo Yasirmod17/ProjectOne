@@ -1,20 +1,22 @@
 var sendgrid  = require('sendgrid')('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');
+var passwordHash = require('password-hash');
 var mongoose = require('mongoose');
 var players = mongoose.model('players');
+var captain = mongoose.model('captain');
 var memberrequest = mongoose.model('memberRequest');
- var mongojs = require('mongojs');
+var mongojs = require('mongojs');
 var express = require('express');
 var router = express();   //Removed '.Router()'
 var player=[];
 var foundRequests=[];
-var captain=[{captainUname:"Captain",captainPword :"Captain"}]
+//var captain=[{captainUname:"ACFCcaptain",captainPword :"Capta1n"}]
+var captainDetails=[];
 var captainU = ''
 var captainP = ""
 var maleTeam=[];
 var femaleTeam=[];
 
 //Get players from players collection in Soccer Database
-
 function splitPlayers(player){
 	maleTeam=[];
 	femaleTeam=[];
@@ -28,6 +30,20 @@ function splitPlayers(player){
 
 	}
 }
+
+function getCaptain(){
+	var captains = mongoose.model('captain')
+  var things= captains.find().exec(function(err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    captainDetails= data;
+    console.log("found captain");
+    //console.log(data);
+})
+}
+
+
 function getPlayer(){
   var players = mongoose.model('players')
   var things=players.find().exec(function(err, data) {
@@ -44,6 +60,7 @@ function getPlayer(){
   })
   //console.log("returning before finding");
 }
+
 //check if a request was made and is pending
 function checkIfRequestExists(a){
 	var existingRequest = mongoose.model('memberRequest');
@@ -56,6 +73,7 @@ function checkIfRequestExists(a){
 			if (request_exists[0] == null){
 				console.log("will send request");
 				sendRequest(a);
+				//return(res);
 			}
 			else{
 				console.log("request already exists");
@@ -78,9 +96,13 @@ function sendRequest(a){
 	request.prevexperience = a.prevexperience;
 
 	request.save(function (err, data) {
-      if (err) console.log("---------------->fuck(Reequest save)<---------------------");
+      if (err) {console.log("---------------->fuck(Reequest save)<---------------------"); 
+      	//return("Couldn't send request, try again later")}
+      }
       else {console.log('Saved request');
-      getPendingRequests();}
+      getPendingRequests();
+      //return("Request sent succesfully");
+    	}
     })
 }
 
@@ -114,6 +136,7 @@ function sendEmail(a){
 /* GET players / pending requests from database page. */
 getPlayer();
 getPendingRequests();
+getCaptain();
 /* GET homepage page. */
 
 router.get('/', function(req, res) { 
@@ -149,7 +172,12 @@ router.post('/sendEmail', function(req,res){
 	a.subject=req.body.subject;
 	a.text=req.body.text;
 	sendEmail(a);
-	res.send('email sent');
+	if(a.from != "" && a.subject != "" && a.text != ""){
+	res.send('Thank you for your feedback!');
+	}
+	else{
+		res.send("Please enter information correctly");
+	}
 })
 
 
@@ -226,22 +254,35 @@ router.post('/memberrequest', function(req, res) {
 	console.log("Got to request");
 	checkIfRequestExists(req.body);
 	console.log(req.body);
+	res.send('Your information has been sent');
 });
 
 router.get('/captainapproval', function(req, res) { 
 		res.send(foundRequests);
 });
 
+router.post('/captainLogout',function(req,res){
+	console.log('logging out captain');
+	captainU=req.body.uname;
+	 captainP=req.body.pword;
+	 res.send('Logged Out');
+})
+
+
 router.get('/captainLogin', function(req, res) { 
 		console.log("checking captain info")
-		if (captainU == captain[0].captainUname){
-			if (captainP == captain[0].captainPword){
+		if (captainU == captainDetails[0].captainUname){
+			if (passwordHash.verify(captainP, captainDetails[0].captainPword)){
 				res.send("Yes");
 			}
 		}
 		else{
 			res.send("No");
 		}
+		// captainU="";
+		// captainP="";
+		// console.log('reset');
 });
+
 
 module.exports = router;

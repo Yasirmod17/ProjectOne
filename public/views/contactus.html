@@ -13,6 +13,10 @@
 </style>
 
 <div id='centerdiv'>
+	<div>
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+  <!--button class='btn btn-default' ng-click="addAlert()">Add Alert</button-->
+	</div>
 	<div class="panel panel-default">
 		<div class='panel-heading'>We'd love your feedback</div>
 			<div class='panel-body'>

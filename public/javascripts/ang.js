@@ -1,5 +1,5 @@
 
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute','ui.bootstrap']);
 
 
 myApp.config(['$routeProvider',
@@ -33,7 +33,10 @@ myApp.config(['$routeProvider',
       }).
       when('/captainView',{
         templateUrl: '/views/captainView.html',
-        controller: 'game6'
+        controller: 'game6',
+        resolve: {
+                factory: checkRouting
+                }
       }).
       when('/contactus',{
         templateUrl: '/views/contactus.html',
@@ -42,6 +45,31 @@ myApp.config(['$routeProvider',
       otherwise({redirectTo: '/home'});
   }]);
 
+var checkRouting= function ($q, $http, $location) {
+    // if ($rootScope.userProfile) {
+    //     return true;
+    // } else {
+        var deferred = $q.defer();
+        $http.get("/captainLogin")//, { userToken: "blah" })
+            .success(function (response) {
+              if(response=="Yes"){
+                deferred.resolve(true);
+              }
+              else{
+                deferred.reject();
+                $location.path("/captain");
+              }
+            //     $rootScope.userProfile = response.userProfile;
+            //     deferred.resolve(true);
+            // })
+            // .error(function () {
+            //     deferred.reject();
+            //     $location.path("/captain");
+            //  });
+})
+        return deferred.promise;
+
+};
 
 /*Two functions logic below from http://stackoverflow.com/questions/12505760/processing-http-response-in-service
 (Asynchronous waterfall)*/
@@ -134,18 +162,33 @@ myApp.controller('game4', ['$scope', '$http', '$location',
     $scope.experienceno = true;
     
     $scope.postInfo = function(){
-      $location.path('/home');
+      //$location.path('/home');
       $http.post('/memberrequest',$scope.user)
       .success(function(response){
-
+        console.log(response);
+        $scope.response=response;
+        $scope.addformSentAlert()
         //console.log("sent");
       })
       //console.log($scope.user);
     };
-  }]);
+    $scope.addformSentAlert=function(){
+      $scope.alerts = [
+      {type:'success',msg: $scope.response}
+      // {type:'danger',msg: "Couldn't send request, try again later"},
+      // {msg: 'Request made before,please await a response'}
+      ];
 
-myApp.controller('game5', ['$scope', '$http', '$location' ,
-  function($scope,$http,$location) {
+      $scope.closeAlert = function(index) {
+       $scope.alerts.splice(index, 1);
+       $location.path('/home');
+     };
+    }
+  }
+  ]);
+
+myApp.controller('game5', ['$scope', '$http', '$location' , '$route',
+  function($scope,$http,$location,$route) {
     $scope.captain={uname:"", pword:""};
      $scope.verify2 = function(){
       $http.get('/captainLogin')
@@ -155,6 +198,9 @@ myApp.controller('game5', ['$scope', '$http', '$location' ,
         if($scope.match =='Yes'){
           $location.path('/captainView');
         }
+        else{
+          $scope.sendBadAlert();
+        }  
     });
     }
 
@@ -168,8 +214,21 @@ myApp.controller('game5', ['$scope', '$http', '$location' ,
         $scope.verify2();
       })
     }
+
+    $scope.sendBadAlert=function(){
+      $scope.alerts = [
+      {type:'danger', msg: "Incorrect Username or Password"}
+      // {type:'danger',msg: "Couldn't send request, try again later"},
+      // {msg: 'Request made before,please await a response'}
+      ];
+
+      $scope.closeAlert = function(index) {
+       $scope.alerts.splice(index, 1);
+       $route.reload();
+     };
     }
-  ]);
+    }
+]);
 
 myApp.controller('game6', ['$scope', '$http', '$location', '$routeParams', '$route',
   function($scope, $http, $location, $routeParams,$route) {
@@ -211,21 +270,109 @@ myApp.controller('game6', ['$scope', '$http', '$location', '$routeParams', '$rou
         $route.reload();
       })
     }
+    $scope.blankCredentials={uname:"", pword:""};
+
+    $scope.captainLogout=function(){
+      $http.post('/captainLogout',$scope.blankCredentials).
+      success(function(response){
+        console.log(response);
+        $location.path('/captain');
+      })
+    }
   }
  ]);
 
-myApp.controller('game7',['$scope','$http','$location',
-  function($scope,$http,$location){
+myApp.controller('game7',['$scope','$http','$location',"$route",
+  function($scope,$http,$location,$route){
     $scope.emailBody = {to:'mibrahim17@amherst.edu',from:"",subject:"",text:""};
     $scope.sendEmail = function(){
       $http.post('/sendEmail', $scope.emailBody).
       success(function(response){
         console.log(response);
-        $location.path('/home');
+        $scope.response=response;
+        console.log($scope.response)
+        if($scope.response=="Thank you for your feedback!"){
+        $scope.addformSentAlert();}
+        else{
+          $scope.sendBadAlert();
+        }
       })
+    }
+    $scope.addformSentAlert=function(){
+      $scope.alerts = [
+      {type:'success',msg: $scope.response}
+      // {type:'danger',msg: "Couldn't send request, try again later"},
+      // {msg: 'Request made before,please await a response'}
+      ];
+
+      $scope.closeAlert = function(index) {
+       $scope.alerts.splice(index, 1);
+       $location.path('/home');
+     };
+    }
+    $scope.sendBadAlert=function(){
+      $scope.alerts = [
+      {type:'danger',msg: $scope.response}
+      // {type:'danger',msg: "Couldn't send request, try again later"},
+      // {msg: 'Request made before,please await a response'}
+      ];
+
+      $scope.closeAlert = function(index) {
+       $scope.alerts.splice(index, 1);
+       $route.reload();
+     };
     }
   }
   ]);
 
 
+
+// angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
+//     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', 
+//       function($scope, $timeout, $transition, $q) {
+//       }]).directive('carousel', [function() {
+//       return {
+
+//     }
+// }]);
+
+////FOr carousel
+angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) {
+  $scope.myInterval = 5000;
+  var slides = $scope.slides = [];
+  $scope.images =["/men.jpg","/women.jpg"];
+  $scope.addSlide = function() {
+    for(var i=0; i<$scope.images.length; i++){
+      $scope.newWidth = $scope.images[i];
+    slides.push({
+      image: '../../images' + $scope.newWidth,
+      text: ['The Guys,','The Ladies'][slides.length % 2] + ' ' +
+        ['after a resounding victory.', 'team.'][slides.length % 2]
+    });
+  }}
+  for (var i=0; i<$scope.images.length; i++) {
+      $scope.addSlide();
+  }
+});
+
+
+///for alert
+// angular.module('ui.bootstrap.demo').controller('AlertDemoCtrl', function ($scope) {
+//   $scope.alerts = [
+//     //{ type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+//     { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+//   ];
+
+//   $scope.addformSentAlert = function() {
+//     $scope.alerts.push({msg: 'Form Submited! Good Job.'});
+//   };
+
+//   $scope.addfinishAlert = function() {
+//     $scope.alerts.push({msg: 'Form Submited! Good Job.'});
+//   };
+
+//   $scope.closeAlert = function(index) {
+//     $scope.alerts.splice(index, 1);
+//   };
+// });
 

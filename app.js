@@ -9,6 +9,8 @@ var app = express();
 require('./models/models');
 var routes = require('./routes/index');
 var user = require('./routes/user');
+var env = process.env.NODE_ENV || 'development';
+var config = require('./config')[env];
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -22,9 +24,9 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 var mongoose = require('mongoose');                         
-mongoose.connect('mongodb://localhost/Soccer'); //Database name==Soccer
+mongoose.connect(config.mongo.url); //Database name==Soccer
 // development only
-if ('development' == app.get('env')) {
+if (env == 'development') {
   app.use(express.errorHandler());
 }
 
