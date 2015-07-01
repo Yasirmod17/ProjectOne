@@ -244,6 +244,7 @@ router.post('/playerReject', function(req,res){
 
 router.post('/postCaptainInfo', function(req, res) { 
 	console.log("Got to Posting Captain Info");
+	getCaptain();
 	captainU=req.body.uname;
 	captainP=req.body.pword;
 	console.log(req.body);
