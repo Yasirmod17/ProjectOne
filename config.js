@@ -8,7 +8,7 @@ config = {
 	'production': {
 		mongo: {
 			url: 'mongodb://heroku_d079jmlp:rsscua61q4uc7jm02m6h4qtvp2@ds063449.mongolab.com:63449/heroku_d079jmlp',
-			port: '27017'
+			port: '3000'
 		}
 	}
 }
