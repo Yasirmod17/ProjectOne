@@ -43,6 +43,11 @@ function getCaptain(){
 })
 }
 
+function logOutCaptain(){
+	captainU="";
+	captainP="";
+}
+
 
 function getPlayer(){
   var players = mongoose.model('players')
@@ -225,6 +230,7 @@ router.post('/playerAcceptance', function(req, res) {
 });
 
 router.post('/playerReject', function(req,res){
+	getPlayer();
 	console.log("got to player rejectance");
 	console.log(req.body.lname)
 	var playerRequest = mongoose.model('memberRequest');
@@ -253,6 +259,7 @@ router.post('/postCaptainInfo', function(req, res) {
 
 router.post('/memberrequest', function(req, res) { 
 	console.log("Got to request");
+	logOutCaptain();
 	checkIfRequestExists(req.body);
 	console.log(req.body);
 	res.send('Your information has been sent');
