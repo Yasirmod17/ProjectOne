@@ -48,6 +48,18 @@ function logOutCaptain(){
 	captainP="";
 }
 
+function deletePlayer(a){
+	var players = mongoose.model('players')
+	players.remove({lname:a.lname,fname:a.fname},function (err,data){
+		if(err){
+			console.log("Couldnt delete player");
+		}
+		else{
+			console.log("Player Deleted")
+			getPlayer();
+		}
+	});
+}
 
 function getPlayer(){
   var players = mongoose.model('players')
@@ -287,9 +299,13 @@ router.get('/captainLogin', function(req, res) {
 		else{
 			res.send("No");
 		}
-		// captainU="";
-		// captainP="";
-		// console.log('reset');
+});
+
+router.post('/deletePlayer',function(req,res){
+	console.log("got to deleting player");
+	console.log(req.body);
+	deletePlayer(req.body);
+	res.send("player Deleted");
 });
 
 

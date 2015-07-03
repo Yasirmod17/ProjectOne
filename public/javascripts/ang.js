@@ -160,7 +160,14 @@ myApp.controller('game4', ['$scope', '$http', '$location',
     $scope.user = {fname: "",lname: "", classyear: "" , hobbies: "", prevexperience: "", sex:"",team:"", position:""};
     $scope.experienceyes = false;
     $scope.experienceno = true;
-    
+    $scope.submitForm = function(isValid) {
+
+    // check to make sure the form is completely valid
+    if (isValid) {
+      console.log('Good form');
+    }
+
+  }
     $scope.postInfo = function(){
       //$location.path('/home');
       $http.post('/memberrequest',$scope.user)
@@ -178,7 +185,7 @@ myApp.controller('game4', ['$scope', '$http', '$location',
       // {type:'danger',msg: "Couldn't send request, try again later"},
       // {msg: 'Request made before,please await a response'}
       ];
-
+      
       $scope.closeAlert = function(index) {
        $scope.alerts.splice(index, 1);
        $location.path('/home');
@@ -244,7 +251,6 @@ myApp.controller('game6', ['$scope', '$http', '$location', '$routeParams', '$rou
           $scope.requestList.push({fname:response[i].fname , lname:response[i].lname , 
             prevexperience:response[i].prevexperience , position:response[i].position});
       }
-      //console.log($scope.requests);
     });
     
     $scope.acceptedPlayers = function(a){
@@ -279,6 +285,15 @@ myApp.controller('game6', ['$scope', '$http', '$location', '$routeParams', '$rou
         $location.path('/captain');
       })
     }
+
+    $scope.PlayerToDelete={fname:"",lname:""}
+    $scope.deletePlayer=function(){
+      $http.post('/deletePlayer', $scope.PlayerToDelete).
+      success(function(response){
+        console.log(response);
+        $route.reload();
+    }
+    )}
   }
  ]);
 
@@ -298,13 +313,21 @@ myApp.controller('game7',['$scope','$http','$location',"$route",
         }
       })
     }
+    $scope.submitForm = function(isValid) {
+
+    // check to make sure the form is completely valid
+    if (isValid) {
+      console.log('Good form');
+    }
+
+  }
+
     $scope.addformSentAlert=function(){
       $scope.alerts = [
       {type:'success',msg: $scope.response}
       // {type:'danger',msg: "Couldn't send request, try again later"},
       // {msg: 'Request made before,please await a response'}
       ];
-
       $scope.closeAlert = function(index) {
        $scope.alerts.splice(index, 1);
        $location.path('/home');
@@ -327,15 +350,6 @@ myApp.controller('game7',['$scope','$http','$location',"$route",
 
 
 
-// angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
-//     .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', 
-//       function($scope, $timeout, $transition, $q) {
-//       }]).directive('carousel', [function() {
-//       return {
-
-//     }
-// }]);
-
 ////FOr carousel
 angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) {
   $scope.myInterval = 5000;
@@ -356,23 +370,5 @@ angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) 
 });
 
 
-///for alert
-// angular.module('ui.bootstrap.demo').controller('AlertDemoCtrl', function ($scope) {
-//   $scope.alerts = [
-//     //{ type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
-//     { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-//   ];
 
-//   $scope.addformSentAlert = function() {
-//     $scope.alerts.push({msg: 'Form Submited! Good Job.'});
-//   };
-
-//   $scope.addfinishAlert = function() {
-//     $scope.alerts.push({msg: 'Form Submited! Good Job.'});
-//   };
-
-//   $scope.closeAlert = function(index) {
-//     $scope.alerts.splice(index, 1);
-//   };
-// });
 

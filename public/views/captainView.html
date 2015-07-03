@@ -2,8 +2,19 @@
 div{
 	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+#centerdiv{
+     position:absolute;
+  
+     top:15%;
+     left:15%;
+     margin:-30px 0 0 -30px;
+}
+.panel-heading {
+    text-align: center;
+    background-color: #8B6A8B !important;
+}
 </style>
+<div id='centerdiv'>
 <div class="panel panel-default">
 	<div class='panel-heading'>Pending Member Requests({{number_of_requests}})</div>
 		<div class='panel-body'>
@@ -18,9 +29,26 @@ div{
 				  <button ng-click='rejectedPlayers(request.lname)'>Reject {{request.fname}}</button>
 				</div>
 			  <hr>
-			</div>
-		</div>
+			<div>
 	</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+	<div class='panel-heading'>Delete player</div>
+		<div class='panel-body'>
+			<form name='deleteForm' ng-submit="submitForm(userForm.$valid)" novalidate>
+				First name:<input type="text" name="fname" ng-model="PlayerToDelete.fname" required>
+				Last name:<input type="text" name="lname" ng-model="PlayerToDelete.lname"required>
+				<div class='panel-footer clearfix'>
+						<div class='pull right'>
+							<input type='Submit' ng-disabled="deleteForm.$invalid" ng-click='deletePlayer()' value='Delete Player'>
+						</div>
+				</div>
+		</div>
+</div>
 <div>
-<button ng-click="captainLogout()" >LogOut</button>	
+<button sty;e='align:right;' ng-click="captainLogout()" >LogOut</button>	
+</div>
 </div>

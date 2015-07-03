@@ -6,6 +6,9 @@
      left:35%;
      margin:-100px 0 0 -100px;
 }
+p{
+	text-align: left;
+}
 .panel-heading {
     text-align: center;
     background-color: #8B6A8B !important;
@@ -15,32 +18,30 @@
 <div id='centerdiv'>
 	<div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-  <!--button class='btn btn-default' ng-click="addAlert()">Add Alert</button-->
 	</div>
 	<div class="panel panel-default">
 		<div class='panel-heading'>We'd love your feedback</div>
 			<div class='panel-body'>
-				<form method='post'>
+				<form method='post' name="contactForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 					<div class='form-group'>
 						Your Email:<input type="email" name="email" ng-model="emailBody.from" required><br>
+						<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">Your Email is required.</p>
 					</div>
-					<!--div ng-show="form.$submitted || form.uEmail.$touched">
-		      		<span ng-show="form.uEmail.$error.required">Please input your email.</span>
-		      		<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
-    			</div-->
 					<div class='form-group'>
 						Subject:<input type="text" name="subject" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
+						<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="help-block">Please include a subject.</p>
 					</div>
 					<div class='form-group'>
 						<div>Enter feedback here:<div>
 					<textarea rows="4" cols="60" name="content"  ng-model='emailBody.text'>
 							Enter feedback here</textarea>
+					<p ng-show="contactForm.content.$invalid && !contactForm.content.$pristine" class="help-block">Include a body</p>
 					</div>
 					<div class='panel-footer clearfix'>
 						<div class='pull right'>
-							<input type='Submit' ng-click='sendEmail()' value='send Feedback'>
+							<input type='Submit' ng-disabled="contactForm.$invalid" ng-click='sendEmail()' value='send Feedback'>
 						</div>
-					<div>
+					</div>
 				</form>
 			</div>
 		</div>
