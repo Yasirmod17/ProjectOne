@@ -1,4 +1,5 @@
 var sendgrid  = require('sendgrid')('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');
+var cloudinary = require('cloudinary');
 var passwordHash = require('password-hash');
 var mongoose = require('mongoose');
 var players = mongoose.model('players');
@@ -301,6 +302,8 @@ router.get('/captainLogin', function(req, res) {
 		}
 });
 
+
+
 router.post('/deletePlayer',function(req,res){
 	console.log("got to deleting player");
 	console.log(req.body);
@@ -308,5 +311,9 @@ router.post('/deletePlayer',function(req,res){
 	res.send("player Deleted");
 });
 
+router.post('/upload', function(req,res){
+	console.log("got to uploading")
+	console.log(req.body)
+})
 
 module.exports = router;

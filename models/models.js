@@ -7,7 +7,8 @@ var playerSchema = new Schema({
 	classyear : String,
 	position: String,
 	hobbies: String,
-	sex: String
+	sex: String,
+	image: String
 });
 
 var requestSchema=new Schema({

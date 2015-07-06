@@ -143,6 +143,7 @@ myApp.controller('game3', ['$scope','$routeParams', '$http',
            $scope.classyear=$scope.playerD.classyear;
            $scope.position=$scope.playerD.position;
            $scope.hobbies=$scope.playerD.hobbies;
+           $scope.image=$scope.playerD.image;
         }
       }
     })
@@ -154,7 +155,11 @@ myApp.controller('game3', ['$scope','$routeParams', '$http',
   }
  ]);
 
-myApp.controller('game4', ['$scope', '$http', '$location',
+
+
+
+
+myApp.controller('game4', ['$scope', '$http', '$location', 
   function($scope, $http, $location) {
 
     $scope.user = {fname: "",lname: "", classyear: "" , hobbies: "", prevexperience: "", sex:"",team:"", position:""};
@@ -354,12 +359,12 @@ myApp.controller('game7',['$scope','$http','$location',"$route",
 angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) {
   $scope.myInterval = 5000;
   var slides = $scope.slides = [];
-  $scope.images =["/men.jpg","/women.jpg"];
+  $scope.images =["/v1436192366/men_ean5ub.jpg","/v1436192379/women_kowhdr.jpg"];
   $scope.addSlide = function() {
     for(var i=0; i<$scope.images.length; i++){
       $scope.newWidth = $scope.images[i];
     slides.push({
-      image: '../../images' + $scope.newWidth,
+      image: 'http://res.cloudinary.com/yasir/image/upload' + $scope.newWidth,
       text: ['The Guys,','The Ladies'][slides.length % 2] + ' ' +
         ['after a resounding victory.', 'team.'][slides.length % 2]
     });
