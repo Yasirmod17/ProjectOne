@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Amherst College Club Soccer</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/stylesheets//materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/stylesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body ng-app='myApp'>
+  <nav class="navbar-custom" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#home" class="brand-logo">ACFC</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">About</a></li>
+
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#men">Men</a></li>
+        <li><a href="#women">Women</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Teams<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <li><a href="#request">Join</a></li>
+        <li><a href="#captain">Captain Login</a></li>
+        <li><a href="#contactus">Contact Us</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div ng-view=""></div>
+    </div>
+  </div>
+
+
+  
+
+  <footer class="navbar-custom">
+    <div class="container">
+    <section position='fixed' id='copywright'>
+      Copyright © Created By 
+      <a href='https://www.facebook.com/mohammedyi'>Mohammed Ibrahim</a>
+    </section>
+    </div>
+    
+  </footer>
+
+  <!--dynamic web scripts-->
+  <script async="" src="//www.google-analytics.com/analytics.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- -->
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+  <script src="/javascripts/materialize.js"></script>
+  <script src="/javascripts/init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.js"></script>
+<!--script src="/javascripts/ng-file-upload.js"></script--> 
+  <script src="/javascripts/ang.js"></script>
+  </body>
+</html>

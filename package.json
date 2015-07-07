@@ -13,7 +13,9 @@
   },
   "description": "node",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "ember-cli-materialize": "^0.16.3"
+  },
   "repository": {
     "type": "git",
     "url": " "

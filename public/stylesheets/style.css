@@ -9,14 +9,12 @@
 body {
   background-image: url('http://res.cloudinary.com/yasir/image/upload/v1436192385/homeimageBlur_gm8ku7.jpg');
   background-size: cover;
-  padding: 50px;
-  padding-bottom: 70px;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-opacity: 0.4
 }
 h1 {text-align:center;}
 h3{text-align: right}
 p {text-align:center;}
+h4{text-align: center;}
 .navbar-custom {
     color: white;
     background-color: #8B6A8B;
@@ -28,6 +26,14 @@ li {
     display: inline;
 }
 
+ #footer {position:fixed;
+    height:20px;
+    background-color:#8B6A8B;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
+  }
 /*.imageContainer {
 	
     position: relative;

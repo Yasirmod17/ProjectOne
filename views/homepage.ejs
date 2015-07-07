@@ -8,11 +8,18 @@
     <meta name="author" content="Mohammed Ibrahim">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
-	<title>Amherst club soccer</title>
+	<title>Amherst College club soccer</title>
 	<link href="/stylesheets/bootstrap.css" rel="stylesheet">
   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
   <link href="/stylesheets/style.css" rel='stylesheet'>
 </head>
+<style>
+h1{
+  font-style: italic;
+  font-size: 55px;
+  font: "Comic Sans";
+}
+</style>
 <body ng-app='myApp'>
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" >
   <div class="container" color="purple">
@@ -37,14 +44,6 @@
                 <li><a href="#men">Men</a></li>
               </ul>
         </li>
-        <!--li>Teams
-          <ul>
-              <li><a href="#women">Women</a></li>
-              <li><a href="#men">Men</a></li>
-              
-            </li>
-          </ul>
-        </li-->
         <li><a href='#request'>Join the Team</a><li>
         <li><a href='#captain'>Captain LogIn</a><li>
         <li><a href='#contactus'>Contact Us</a><li>
@@ -53,27 +52,24 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container" style="margin-top: 50px;">
 
   <div class="starter-template">
     <!--h1>THIS IS THE AMHERST COLLEGE CLUB SOCCER WEBPAGE</h1>
     <p class="lead">PS: This is under construction</p-->
   <div ng-view=""></div>
+</div >
 </div>
-  <!--div>
-    <div ng-repeat="player in players" >
-            <p>{{player.name}}</p>
-      </span>
-    <div>
-</div></.container -->
-<nav position='absolute' class="navbar navbar-default navbar-fixed-bottom navbar-custom" >
+
+
+<footer id="footer"> <!--navbar-fixed-bottom ,removed-->
   <div class="container">
     <section position='fixed' id='copywright'>
       Copyright © Created By 
       <a href='https://www.facebook.com/mohammedyi'>Mohammed Ibrahim</a>
     </section>
   </div>
-</nav>
+</footer>
 <!--dynamic web scripts-->
 <script async="" src="//www.google-analytics.com/analytics.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

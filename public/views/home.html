@@ -4,7 +4,8 @@
   font-size: 40px;
 }
 </style>
-<div ng-controller="CarouselDemoCtrl" class'col-md-6'>
+
+<div ng-controller="CarouselDemoCtrl" class'col-md-6' class="container">
   <div style="height: 500px">
     <carousel interval="myInterval">
       <slide ng-repeat="slide in slides" active="slide.active">
@@ -16,8 +17,37 @@
     </carousel>
   </div>
 </div>
-<div>
-<!--div style="background-color:white; overflow: auto; height: 100px; width:cover;" class="clear_fix">
-  <p>PLAY BEAUTIFUL</p>
-</div-->
+
+<div class="container" style="height:130px;width:800px;">
+<div class="row">
+  <div class="col-sm-6 col-md-4" style="height:130px;background-color:#8B6A8B">
+    <div class="center promo">
+      <h4 class="promo-caption">Diversity</h4>
+        <p>Club soccer is most definitely one of the most diverse student organizaton on campus. This is helped by our open arms and inclusion of people with different skill levels and soccer background</p>
+        </div>
+    </div>
+ 
+
+
+  <div class="col-sm-6 col-md-4" style="height:130px;background-color:white">
+    <div class="center promo">
+      <h4 class="promo-caption">Set Up</h4>
+      <p class="light center">We usually have three 2 hour practice sessions every week and try to get as much games as we can(friendlies and competitive). We have in the past played teams from MIT,UMASS,Colby... </p>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4" style="height:130px;background-color:#8B6A8B">
+      <div class="center promo">
+        <h4 class="promo-caption">Entertainment</h4>
+        <p class="light center">Come to our games, you'll be blown away! </p>
+      </div>
+ </div>
+  
+</div>
+</div>
+
+<div style="background-color:white;">
+  <h1 style="text-align:center"> I LEARNT ALL ABOUT LIFE<br> WITH A BALL AT MY FEET</h1>
+  <h3 style="text-align:right">-Ronaldinho</h3>
+</div>
 </div>

@@ -44,10 +44,11 @@ p{
 
 </div>
 <div class='form-group'>
- Sex*              : <select ng-model='user.sex' reqiured>
+ Sex*              : <select ng-model='user.sex' name="sex" reqiured>
                     <option value='Male'>Male</option>
                     <option value='Female'>Female</option>
                     </select>
+  <p ng-show="userForm.sex.$invalid && !userForm.sex.$pristine" class="help-block">Please select one</p>
 </div>
 <div class='form-group'>
  Hobbies          : <input type="text" name="hobbies" ng-model="user.hobbies">
