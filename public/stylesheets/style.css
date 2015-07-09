@@ -5,7 +5,7 @@
   .css-form input.ng-valid.ng-touched {
     background-color: #78FA89;
   }
-  
+
 body {
   background-image: url('http://res.cloudinary.com/yasir/image/upload/v1436192385/homeimageBlur_gm8ku7.jpg');
   background-size: cover;
@@ -26,10 +26,10 @@ li {
     display: inline;
 }
 
- #footer {position:fixed;
+ #footer {position:relative;
     height:20px;
     background-color:#8B6A8B;
-    bottom:0px;
+    bottom:0;
     left:0px;
     right:0px;
     margin-bottom:0px;

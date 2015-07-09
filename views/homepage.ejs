@@ -13,13 +13,6 @@
   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
   <link href="/stylesheets/style.css" rel='stylesheet'>
 </head>
-<style>
-h1{
-  font-style: italic;
-  font-size: 55px;
-  font: "Comic Sans";
-}
-</style>
 <body ng-app='myApp'>
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" >
   <div class="container" color="purple">
@@ -39,7 +32,7 @@ h1{
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             Teams <span class="caret"></span>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu navbar-custom">
                 <li><a href="#women">Women</a></li>
                 <li><a href="#men">Men</a></li>
               </ul>
@@ -62,7 +55,7 @@ h1{
 </div>
 
 
-<footer id="footer"> <!--navbar-fixed-bottom ,removed-->
+<footer id="footer" > <!--navbar-fixed-bottom ,removed-->
   <div class="container">
     <section position='fixed' id='copywright'>
       Copyright © Created By 
