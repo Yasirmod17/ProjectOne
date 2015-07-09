@@ -21,6 +21,8 @@ p{
     background-color: red;
   }
 </style>
+
+
 <div><p>We would love you to join!</p></div>
 <div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
@@ -31,65 +33,102 @@ p{
 <div class='panel-heading'>MEMBERSHIP REQUEST FORM</div>
 <div class='panel-body'>
 
-<form role='form' name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
- <div class='form-group'>
-  First Name*       : <input type="text" name="fname" ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required>
-  <p ng-show="userForm.fname.$invalid && !userForm.fname.$pristine" class="help-block">At least 2 characters, at most 20</p>
- </div>
+<form class"form-horizontal" role='form' name="userForm"  ng-submit="submitForm(userForm.$valid)" novalidate>
+  <div class='form-group '>
+    <label for="fname" class="col-sm-2 control-label">First Name* :</label>
+    <div class="col-sm-10 ">
+      <input type="text" name="fname" size='50' ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required>
+    </div>
+      <p ng-show="userForm.fname.$invalid && !userForm.fname.$pristine" class="help-block">At least 2 characters, at most 20</p>
+  </div><br><br>
 
- <div class='form-group '>
-   Last  Name*       :<input type="text" name="lname" ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required>
-   <p ng-show="userForm.lname.$invalid && !userForm.lname.$pristine" class="help-block">At least 2 characters, at most 20</p>
-</div>
- <div class='form-group '>
-   Class Year*       : <input type="text" name="classyear" ng-model="user.classyear" required>
-    <p ng-show="userForm.classyear.$invalid && !userForm.classyear.$pristine" class="help-block">Your ClassYear is required.</p>
+  <div class='form-group '>
+    <label for="lname" class="col-sm-2 control-label">Last Name* :</label>
+    <div class="col-sm-10">
+      <input type="text" name="lname" size='50' ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required>
+    </div>
+     <p ng-show="userForm.lname.$invalid && !userForm.lname.$pristine" class="help-block">At least 2 characters, at most 20</p>
+  </div><br>
 
-</div>
-<div class='form-group'>
- Sex*              : <select ng-model='user.sex' name="sex" required>
-                    <option value='Male'>Male</option>
-                    <option value='Female'>Female</option>
-                    </select>
-  <p ng-show="userForm.sex.$invalid && !userForm.sex.$pristine" class="help-block">Please select one</p>
-</div>
-<div class='form-group'>
- Hobbies          : <input type="text" name="hobbies" ng-model="user.hobbies">
-</div>
-<div class='form-group'>
- Preferred Position:<select ng-model='user.position'>
-                    <option value='GK'>Goal keeper</option>
-                    <option value='CB'>Center Back</option>
-                    <option value='RB'>Right Back</option>
-                    <option value='LB'>Left Back</option>
-                    <option value='CM'>Center mid</option>
-                    <option value='DM'>Defensive Mid</option>
-                    <option value='AM'>Attacking Mid</option>
-                    <option value='WF'>Wing Foward</option>
-                    <option value='CF'>Center Foward</option>
-                    <option value='UT'>Utility Player</option>
-                  </select>
-</div>
-<div class='form-group ' >
-  Team*:<select ng-model='user.team' name='team' required>
-                    <option value='men'>Men</option>
-                    <option value='women'>Women</option>
-                  </select>
-   <p ng-show="userForm.team.$invalid && !userForm.team.$pristine" class="help-block">You have to specify a team.</p>
-  </div>
-<div class='form-group'>
-    <input type="checkbox" name="previousexperience?" value="yes" ng-model="experienceyes"> I have previous experience
-</div>
+  <div class='form-group '>
+    <label for="classyear" class="col-sm-2 control-label">Class Year* :</label>
+    <div class="col-sm-10"> 
+      <input type="text" name="classyear"  size='50' ng-model="user.classyear" required>
+    </div>
+      <p ng-show="userForm.classyear.$invalid && !userForm.classyear.$pristine" class="help-block">Your ClassYear is required.</p>
+  </div><br>
+
+
+  <div class='form-group'>
+   <label for="sex" class="col-sm-2 control-label">Sex* :</label>
+    <div class="col-sm-10">
+      <select ng-model='user.sex' name="sex" required>
+        <option value='Male'>Male</option>
+        <option value='Female'>Female</option>
+      </select>
+    </div>
+    <p ng-show="userForm.sex.$invalid && !userForm.sex.$pristine" class="help-block">Please select one</p>
+  </div><br>
+
+  <div class='form-group'>
+    <label for="hobbies" class="col-sm-2 control-label">Hobbies :</label>
+    <div class="col-sm-10">
+      <input type="text" name="hobbies"  size='50' ng-model="user.hobbies">
+    </div>
+  </div><br>
+
+  <div class='form-group'>
+    <label for="position" class="col-sm-2 control-label">Position :</label>
+    <div class="col-sm-10">
+      <select ng-model='user.position' name="position">
+        <option value='GK'>Goal keeper</option>
+        <option value='CB'>Center Back</option>
+        <option value='RB'>Right Back</option>
+        <option value='LB'>Left Back</option>
+        <option value='CM'>Center mid</option>
+        <option value='DM'>Defensive Mid</option>
+        <option value='AM'>Attacking Mid</option>
+        <option value='WF'>Wing Foward</option>
+        <option value='CF'>Center Foward</option>
+        <option value='UT'>Utility Player</option>
+      </select>
+    </div>
+  </div><br>
+
+
+  <div class='form-group ' >
+     <label for="team" class="col-sm-2 control-label">Team* :</label>
+    <div class="col-sm-10">
+      <select ng-model='user.team' name='team' required>
+        <option value='men'>Men</option>
+        <option value='women'>Women</option>
+      </select>
+    </div>
+     <p ng-show="userForm.team.$invalid && !userForm.team.$pristine" class="help-block">You have to specify a team.</p>
+  </div><br>
+
+
+  <div class='form-group'>
+      <label for="previousexperience?" class="col-sm-2 control-label">I have previous experience </label>
+      <div class="col-sm-10">
+        <input type="checkbox" name="previousexperience?" value="yes" ng-model="experienceyes"> 
+      </div>
+  </div><br>
+
     <div ng-show="experienceyes" ng-hide="experienceno">
-        <form>
-        Tell us about your previous experience:
-          <input type="text" name="experience" ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150">
+          <form>
           <br>
-          <!--input type="submit" value="Send Info" -->
-        </form>
-     </div>
+           <label for="experience" class="col-sm-3 control-label">Tell us about your previous experience :</label>
+            <div class="col-sm-9">
+                <input type="text" name="experience" size='50'ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150">
+                <br>
+            </div>
+            <!--input type="submit" value="Send Info" -->
+          </form>
+      </div><br><br>
+    <br><br>  
   <div class='panel-footer clearfix panel-heading'>
-    <div class='pull right'>
+    <div style="align:center">
       <input type='Submit' ng-click='postInfo()' ng-disabled="userForm.$invalid" value='Submit info'>
     </div>
   </div>

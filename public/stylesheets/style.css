@@ -15,10 +15,24 @@ h1 {text-align:center;}
 h3{text-align: right}
 p {text-align:center;}
 h4{text-align: center;}
+
+
 .navbar-custom {
     color: white;
     background-color: #8B6A8B;
 }
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+/*.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+}*/
 a {
   color: purple;
 }
@@ -26,7 +40,7 @@ li {
     display: inline;
 }
 
- #footer {position:relative;
+ #footer {position:absolute;
     height:20px;
     background-color:#8B6A8B;
     bottom:0;

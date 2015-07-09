@@ -6,6 +6,7 @@
      left:35%;
      margin:-100px 0 0 -100px;
 }
+
 #footer{
 	position: absolute;
 }
@@ -35,26 +36,39 @@ p{
 		<div class='panel-heading'>We'd love your feedback</div>
 			<div class='panel-body'>
 				<form method='post' name="contactForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+					<div class="form-group">
+					<label for="email" class="col-sm-3 control-label">Your Email*:</label>
+     				 <div class="col-sm-9">
+							<div class='form-group'>
+								<input type="email" name="email" ng-model="emailBody.from" required><br>
+								<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">Your Email is required.</p>
+							</div>
+							</div>
+					</div><br>
+
 					<div class='form-group'>
-						Your Email*:<input type="email" name="email" ng-model="emailBody.from" required><br>
-						<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">Your Email is required.</p>
-					</div>
+						<label for="subject" class="col-sm-3 control-label">Subject*:</label>
+     				 <div class="col-sm-9">
+     				 	<input type="text" name="subject" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
+							<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="help-block">Please include a subject</p>
+						</div>
+					</div><br><br>
+
+
 					<div class='form-group'>
-						Subject *  :<input type="text" name="subject" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
-						<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="help-block">Please include a subject.</p>
-					</div>
-					<div class='form-group'>
-						<div>Enter feedback here*:<div>
-					<textarea rows="4" cols="60" name="content"  ng-model='emailBody.text'>
-							Enter feedback here</textarea>
-					<p ng-show="contactForm.content.$invalid && !contactForm.content.$pristine" class="help-block">Include a body</p>
-					</div>
-					<div class='panel-footer clearfix'>
+						<label for="content" class="col-sm-3 control-label">Feedback*:</label>
+     				 <div class="col-sm-9">
+								<textarea rows="4" cols="40" name="content"  ng-model='emailBody.text'></textarea>
+								<p ng-show="contactForm.content.$invalid && !contactForm.content.$pristine" class="help-block">Include a body</p>
+						</div>
+					</div><br><br>
+				</form><br><br>
+					<div class='panel-footer clearfix panel-heading'>
 						<div class='pull right'>
 							<input type='Submit' ng-disabled="contactForm.$invalid" ng-click='sendEmail()' value='send Feedback'>
 						</div>
 					</div>
-				</form>
+				
 			</div>
 		</div>
 	</div>

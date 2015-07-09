@@ -13,7 +13,7 @@
   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
   <link href="/stylesheets/style.css" rel='stylesheet'>
 </head>
-<body ng-app='myApp'>
+<body ng-app='myApp' style="position:relative" >
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" >
   <div class="container" color="purple">
     <div class="navbar-header">
@@ -45,12 +45,13 @@
   </div>
 </nav>
 
+
 <div class="container" style="margin-top: 50px;">
 
   <div class="starter-template">
     <!--h1>THIS IS THE AMHERST COLLEGE CLUB SOCCER WEBPAGE</h1>
     <p class="lead">PS: This is under construction</p-->
-  <div ng-view=""></div>
+  <div ng-view="" class="overlay"></div>
 </div >
 </div>
 
