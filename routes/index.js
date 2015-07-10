@@ -19,13 +19,14 @@ var femaleTeam=[];
 
 //Get players from players collection in Soccer Database
 function splitPlayers(player){
+	console.log(player)
 	maleTeam=[];
 	femaleTeam=[];
 	for(i=0 ; i<player.length;i++){
-		if(player[i].sex=='Male'){
+		if(player[i].team=='men'){
 			maleTeam.push({fname:player[i].fname, lname:player[i].lname});
 		}
-		if(player[i].sex=='Female'){
+		if(player[i].team=='women'){
 			femaleTeam.push({fname:player[i].fname, lname:player[i].lname});
 		}
 
@@ -226,8 +227,9 @@ router.post('/playerAcceptance', function(req, res) {
 					add_player.position = player.position;
 					add_player.hobbies = player.hobbies;
 					add_player.sex = player.sex;
+					add_player.team=player.team;
 
-				  add_player.save(function (err, data) {
+				   add_player.save(function (err, data) {
 		      	if (err) console.log("Couldnt add player to players",player.fname);
 		      	else {console.log('Saved New Player',player.fname);
 			      	getPendingRequests();

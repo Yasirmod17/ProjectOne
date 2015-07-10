@@ -60,14 +60,14 @@ p{
 
 
   <div class='form-group'>
-   <label for="sex" class="col-sm-2 control-label">Sex* :</label>
+   <label for="sex" class="col-sm-2 control-label">Sex :</label>
     <div class="col-sm-10">
-      <select ng-model='user.sex' name="sex" required>
+      <select ng-model='user.sex' name="sex" >
         <option value='Male'>Male</option>
         <option value='Female'>Female</option>
+        <option value='Other'>Other</option>
       </select>
     </div>
-    <p ng-show="userForm.sex.$invalid && !userForm.sex.$pristine" class="help-block">Please select one</p>
   </div><br>
 
   <div class='form-group'>

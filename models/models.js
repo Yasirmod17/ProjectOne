@@ -8,7 +8,8 @@ var playerSchema = new Schema({
 	position: String,
 	hobbies: String,
 	sex: String,
-	image: String
+	image: String,
+	team:String
 });
 
 var requestSchema=new Schema({
@@ -18,8 +19,9 @@ var requestSchema=new Schema({
 	position: String,
 	hobbies: String,
 	prevexperience: String,
-	Team:String,
+	team:String,
 	sex:String
+	
 
 });
 

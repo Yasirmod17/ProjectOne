@@ -163,7 +163,7 @@ myApp.controller('game3', ['$scope','$routeParams', '$http',
 myApp.controller('game4', ['$scope', '$http', '$location', 
   function($scope, $http, $location) {
 
-    $scope.user = {fname: "",lname: "", classyear: "" , hobbies: "", prevexperience: "", sex:"",team:"", position:""};
+    $scope.user = {fname: "",lname: "", classyear: "" , hobbies: "", prevexperience: "", sex:"Prefer not to say",team:"", position:""};
     $scope.experienceyes = false;
     $scope.experienceno = true;
     $scope.submitForm = function(isValid) {
@@ -255,7 +255,7 @@ myApp.controller('game6', ['$scope', '$http', '$location', '$routeParams', '$rou
       for(i=0; i<response.length ; i++){
           //$scope.accepted[response[i].lname]='';
           $scope.requestList.push({fname:response[i].fname , lname:response[i].lname , 
-            prevexperience:response[i].prevexperience , position:response[i].position});
+            prevexperience:response[i].prevexperience , position:response[i].position, team:response[i].team,sex:response[i].sex});
       }
     });
     
