@@ -19,15 +19,15 @@ var femaleTeam=[];
 
 //Get players from players collection in Soccer Database
 function splitPlayers(player){
-	console.log(player)
+	//console.log(player)
 	maleTeam=[];
 	femaleTeam=[];
 	for(i=0 ; i<player.length;i++){
 		if(player[i].team=='men'){
-			maleTeam.push({fname:player[i].fname, lname:player[i].lname});
+			maleTeam.push({fname:player[i].fname, lname:player[i].lname,position:player[i].position,position2:player[i].position2});
 		}
 		if(player[i].team=='women'){
-			femaleTeam.push({fname:player[i].fname, lname:player[i].lname});
+			femaleTeam.push({fname:player[i].fname, lname:player[i].lname,position:player[i].position,position2:player[i].position2});
 		}
 
 	}
@@ -108,6 +108,7 @@ function sendRequest(a){
 	request.fname = a.fname;
 	request.lname = a.lname;
 	request.position = a.position;
+	request.position2 = a.position2;
 	request.team = a.team;
 	request.classyear = a.classyear;
 	request.sex = a.sex;
@@ -225,6 +226,7 @@ router.post('/playerAcceptance', function(req, res) {
 					add_player.lname = player.lname;
 					add_player.classyear = player.classyear;
 					add_player.position = player.position;
+					add_player.position2 = player.position2;
 					add_player.hobbies = player.hobbies;
 					add_player.sex = player.sex;
 					add_player.team=player.team;
@@ -276,6 +278,12 @@ router.post('/postCaptainInfo', function(req, res) {
 router.post('/memberrequest', function(req, res) { 
 	console.log("Got to request");
 	logOutCaptain();
+	if (req.body.position==req.body.position2){
+		console.log("positions equal");
+		req.body.position2="UT";
+
+	}
+	console.log(req.body);
 	checkIfRequestExists(req.body);
 	console.log(req.body);
 	res.send('Your information has been sent');

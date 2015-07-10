@@ -18,10 +18,31 @@ h2{
 </style>
 <div>
   <p><h2>Captains: Angie johnson and Shirley Duquène</h2><p>
+  <div>
+    <div class="panel panel-default panel-custom col-sm-12 col-md-12 col-lg-12">
+      <table style="align:center"class="table table-hover col-sm-12 col-md-12 col-lg-12">
+        <thead>
+          <tr>
+            <th>Player Name</th>
+            <th>Primary Position</th>
+            <th>Secondary Position</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr ng-repeat="player in players"> 
+            <td><a href="#profile/{{player.fname}}">{{player.fname}} {{player.lname}}</td>
+             <td>{{player.position}}</td>
+            <td>{{player.position2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
   <!--span>
         <img src="../images/women.jpg" height="500" width="600">
-      </span-->
+      </span>
   <div ng-repeat="player in players">
       <h7 class="right"><a ng-href="#profile/{{player.fname}}">{{player.fname}} {{player.lname}}<h7>
   </div>
-</div>
+</div-->

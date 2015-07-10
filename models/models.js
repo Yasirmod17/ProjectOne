@@ -6,6 +6,7 @@ var playerSchema = new Schema({
 	 fname: String,
 	classyear : String,
 	position: String,
+	position2:String,
 	hobbies: String,
 	sex: String,
 	image: String,
@@ -17,11 +18,12 @@ var requestSchema=new Schema({
 	fname: String,
 	classyear : String,
 	position: String,
+	position2: String,
 	hobbies: String,
 	prevexperience: String,
 	team:String,
 	sex:String
-	
+
 
 });
 

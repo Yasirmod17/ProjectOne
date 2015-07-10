@@ -10,6 +10,9 @@
 #footer{
   position: absolute;
 }
+.centerdiv{
+  padding-top: 30px;
+}
 p{
   text-align: left;
 }
@@ -23,13 +26,13 @@ p{
 </style>
 
 
-<div><p>We would love you to join!</p></div>
+<div class="centerdiv">
 <div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
   <!--button class='btn btn-default' ng-click="addAlert()">Add Alert</button-->
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default col-sm-12 col-md-12 col-lg-11">
 <div class='panel-heading'>MEMBERSHIP REQUEST FORM</div>
 <div class='panel-body'>
 
@@ -78,9 +81,27 @@ p{
   </div><br>
 
   <div class='form-group'>
-    <label for="position" class="col-sm-2 control-label">Position :</label>
+    <label for="position" class="col-sm-2 control-label">Preferred Position :</label>
     <div class="col-sm-10">
       <select ng-model='user.position' name="position">
+        <option value='GK'>Goal keeper</option>
+        <option value='CB'>Center Back</option>
+        <option value='RB'>Right Back</option>
+        <option value='LB'>Left Back</option>
+        <option value='CM'>Center mid</option>
+        <option value='DM'>Defensive Mid</option>
+        <option value='AM'>Attacking Mid</option>
+        <option value='WF'>Wing Foward</option>
+        <option value='CF'>Center Foward</option>
+        <option value='UT'>Utility Player</option>
+      </select>
+    </div>
+  </div><br>
+
+  <div class='form-group'>
+    <label for="position" class="col-sm-2 control-label">Secondary Position :</label>
+    <div class="col-sm-10">
+      <select ng-model='user.position2' name="position">
         <option value='GK'>Goal keeper</option>
         <option value='CB'>Center Back</option>
         <option value='RB'>Right Back</option>
@@ -134,6 +155,6 @@ p{
   </div>
   <!--input type="submit" value="Send Info" ng-hide='experienceyes' ng-show='experienceno'-->
 </form>
-
+</div>
 </div>
 </div>
