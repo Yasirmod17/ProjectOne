@@ -32,7 +32,7 @@ p{
   <!--button class='btn btn-default' ng-click="addAlert()">Add Alert</button-->
 </div>
 
-<div class="panel panel-default col-sm-12 col-md-12 col-lg-11">
+<div class="panel panel-default col-sm-12 col-md-12 col-lg-12">
 <div class='panel-heading'>MEMBERSHIP REQUEST FORM</div>
 <div class='panel-body'>
 
@@ -99,7 +99,7 @@ p{
   </div><br>
 
   <div class='form-group'>
-    <label for="position" class="col-sm-2 control-label">Secondary Position :</label>
+    <label for="position" class="col-sm-2 control-label">Secondary Position:</label>
     <div class="col-sm-10">
       <select ng-model='user.position2' name="position">
         <option value='GK'>Goal keeper</option>
@@ -130,7 +130,7 @@ p{
 
 
   <div class='form-group'>
-      <label for="previousexperience?" class="col-sm-2 control-label">I have previous experience </label>
+      <label for="previousexperience?" class="col-sm-2 control-label">previous experience? </label>
       <div class="col-sm-10">
         <input type="checkbox" name="previousexperience?" value="yes" ng-model="experienceyes"> 
       </div>
@@ -139,7 +139,7 @@ p{
     <div ng-show="experienceyes" ng-hide="experienceno">
           <form>
           <br>
-           <label for="experience" class="col-sm-3 control-label">Tell us about your previous experience :</label>
+           <label for="experience" class="col-sm-3 control-label">Elaborate please :</label>
             <div class="col-sm-9">
                 <input type="text" name="experience" size='50'ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150">
                 <br>
