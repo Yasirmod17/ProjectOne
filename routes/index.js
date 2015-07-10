@@ -219,6 +219,7 @@ router.post('/playerAcceptance', function(req, res) {
 				}
 				else{
 					console.log("removed");
+					getPendingRequests();;
 					add_player.fname = player.fname;
 					add_player.lname = player.lname;
 					add_player.classyear = player.classyear;
