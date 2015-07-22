@@ -1,11 +1,7 @@
 <style>
 #centerdiv{
-     position:absolute;
-  
-     top:35%;
-     left:35%;
-     margin:-100px 0 0 -100px;
-}
+      padding: 30px;
+  }
 
 #footer{
 	position: absolute;
@@ -17,14 +13,9 @@ p{
     text-align: center;
     background-color: #8B6A8B !important;
 }
-#centerdiv{
-     position:absolute;
+.centerdiv{
+  padding-top: 50px;
   
-     top:15%;
-     left:25%;
-     
-     
-     margin:-30px 0 0 -30px;
 }
 </style>
 
@@ -32,7 +23,7 @@ p{
 	<div>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-default col-sm-12 col-md-10 col-lg-7">
 		<div class='panel-heading'>WE APPRECIATE YOUR FEEDBACK!</div>
 			<div class='panel-body'>
 				<form method='post' name="contactForm" ng-submit="submitForm(userForm.$valid)" novalidate>
@@ -40,7 +31,7 @@ p{
 					<label for="email" class="col-sm-3 control-label">Your Email*:</label>
      				 <div class="col-sm-9">
 							<div class='form-group'>
-								<input type="email" name="email" size="50" ng-model="emailBody.from" required><br>
+								<input type="email" name="email" size="35" ng-model="emailBody.from" required><br>
 								<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">Your Email is required.</p>
 							</div>
 							</div>
@@ -49,7 +40,7 @@ p{
 					<div class='form-group'>
 						<label for="subject" class="col-sm-3 control-label">Subject*:</label>
      				 <div class="col-sm-9">
-     				 	<input type="text" name="subject" size="50" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
+     				 	<input type="text" name="subject" size="35" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
 							<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="help-block">Please include a subject</p>
 						</div>
 					</div><br><br>

@@ -5,11 +5,18 @@
   .css-form input.ng-valid.ng-touched {
     background-color: #78FA89;
   }
-
+.footerText{
+  font-size: 20px;
+  text-align: left;
+}
+.footerText2{
+  text-align: right;
+}
 body {
   background-image: url('http://res.cloudinary.com/yasir/image/upload/v1436192385/homeimageBlur_gm8ku7.jpg');
   background-size: cover;
-  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "ff-tisa-sans-web-pro",sans-serif;
+  font-size: 12px
 }
 h1 {text-align:center;}
 h3{text-align: right}
@@ -44,10 +51,17 @@ a {
 li {
     display: inline;
 }
+#navbar-title{
+font-size: 25px;
+color:white;
+}
 
- #footer {position:absolute;
-    height:20px;
-    background-color:#8B6A8B;
+#navbar-items{
+  float:right;
+}
+ #footer {position:relative;
+    
+    background-color: rgba(0,0,0,0.9);
     bottom:0;
     left:0px;
     right:0px;

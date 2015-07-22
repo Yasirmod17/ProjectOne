@@ -23,10 +23,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#home" style="color:black;background-color:white">Amherst College FC</a>
+      <a class="navbar-brand" id="navbar-title" href="#home">Amherst College FC</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" id="navbar-items">
         <!--li ><a href="#home">Home</a></li-->
         <li><a href="#about">About</a></li>
         <li role="presentation" class="dropdown">
@@ -51,19 +51,24 @@
   <div class="starter-template">
     <!--h1>THIS IS THE AMHERST COLLEGE CLUB SOCCER WEBPAGE</h1>
     <p class="lead">PS: This is under construction</p-->
-  <div ng-view="" class="overlay"></div>
+  <div ng-view=""></div>
 </div >
 </div>
 
-
+<div>
 <footer id="footer" > <!--navbar-fixed-bottom ,removed-->
   <div class="container">
-    <section position='fixed' id='copywright'>
+    <div class="footerText">
+      <a href="https://instagram.com/explore/tags/amherstclubsoccer/"> #AmherstClubSoccer</a>
+    </div>
+    <hr>
+    <section position='fixed' id='copywright' class='footerText2'>
       Copyright © Created By 
       <a href='https://www.facebook.com/mohammedyi'>Mohammed Ibrahim</a>
     </section>
   </div>
 </footer>
+</div>
 <!--dynamic web scripts-->
 <script async="" src="//www.google-analytics.com/analytics.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
