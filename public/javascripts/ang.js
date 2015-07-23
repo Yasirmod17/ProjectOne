@@ -218,6 +218,14 @@ myApp.controller('game5', ['$scope', '$http', '$location' , '$route',
         }  
     });
     }
+     $scope.submitForm = function(isValid) {
+
+    // check to make sure the form is completely valid
+    if (isValid) {
+      console.log('Good form');
+    }
+
+  }
 
 
     $scope.verify = function(){

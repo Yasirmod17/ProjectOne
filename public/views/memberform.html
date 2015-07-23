@@ -40,7 +40,7 @@ p{
   <div class='form-group '>
     <label for="fname" class="col-sm-2 control-label">First Name* :</label>
     <div class="col-sm-10 ">
-      <input type="text" name="fname" size='50' ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required>
+      <input type="text" name="fname" size='40' ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required>
     </div>
       <p ng-show="userForm.fname.$invalid && !userForm.fname.$pristine" class="help-block">At least 2 characters, at most 20</p>
   </div><br><br>
@@ -48,7 +48,7 @@ p{
   <div class='form-group '>
     <label for="lname" class="col-sm-2 control-label">Last Name* :</label>
     <div class="col-sm-10">
-      <input type="text" name="lname" size='50' ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required>
+      <input type="text" name="lname" size='40' ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required>
     </div>
      <p ng-show="userForm.lname.$invalid && !userForm.lname.$pristine" class="help-block">At least 2 characters, at most 20</p>
   </div><br>
@@ -56,7 +56,7 @@ p{
   <div class='form-group '>
     <label for="classyear" class="col-sm-2 control-label">Class Year* :</label>
     <div class="col-sm-10"> 
-      <input type="text" name="classyear"  size='50' ng-model="user.classyear" required>
+      <input type="text" name="classyear"  size='40' ng-model="user.classyear" required>
     </div>
       <p ng-show="userForm.classyear.$invalid && !userForm.classyear.$pristine" class="help-block">Your ClassYear is required.</p>
   </div><br>
@@ -76,7 +76,7 @@ p{
   <div class='form-group'>
     <label for="hobbies" class="col-sm-2 control-label">Hobbies :</label>
     <div class="col-sm-10">
-      <input type="text" name="hobbies"  size='50' ng-model="user.hobbies">
+      <input type="text" name="hobbies"  size='40' ng-model="user.hobbies">
     </div>
   </div><br>
 
@@ -141,7 +141,7 @@ p{
           <br>
            <label for="experience" class="col-sm-3 control-label">Elaborate please :</label>
             <div class="col-sm-9">
-                <input type="text" name="experience" size='50'ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150">
+                <input type="text" name="experience" size='40'ng-model="user.prevexperience"  ng-minlength="2" ng-maxlength="150">
                 <br>
             </div>
             <!--input type="submit" value="Send Info" -->

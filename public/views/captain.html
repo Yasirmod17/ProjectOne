@@ -23,16 +23,16 @@
 	<div class="panel panel-default">
 		<div class='panel-heading' >Captain LogIn</div>
 			<div class='panel-body'>
-				<form>
+				<form class"form-horizontal" role='form' name="captainForm"  ng-submit="submitForm(captainForm.$valid)" novalidate>
 					<div class='form-group'>
-						Username:<input type="text" name="uname" ng-model="captain.uname"  ng-minlength="2" ng-maxlength="20"required><br>
+						Username*:<input type="text" name="uname" ng-model="captain.uname"  ng-minlength="2" ng-maxlength="20"required><br>
 					</div>
 					<div class='form-group'>
-						Password:<input type="password" name="pword" ng-model="captain.pword"  ng-minlength="2" ng-maxlength="10"required><br>
+						Password*:<input type="password" name="pword" ng-model="captain.pword"  ng-minlength="2" ng-maxlength="10"required><br>
 					</div>
 					<div class='panel-footer clearfix panel-heading'>
 						<div class='pull right'>
-							<button ng-click='verify()'>LogIn</button>
+							<button ng-click='verify()' ng-disabled="captainForm.$invalid">LogIn</button>
 						</div>
 					<div>
 				</form>

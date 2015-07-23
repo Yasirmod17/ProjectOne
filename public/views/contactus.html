@@ -15,7 +15,7 @@ p{
 }
 .centerdiv{
   padding-top: 50px;
-  
+
 }
 </style>
 
@@ -28,35 +28,35 @@ p{
 			<div class='panel-body'>
 				<form method='post' name="contactForm" ng-submit="submitForm(userForm.$valid)" novalidate>
 					<div class="form-group">
-					<label for="email" class="col-sm-3 control-label">Your Email*:</label>
-     				 <div class="col-sm-9">
+					<label for="email" class="col-sm-2 col-md-3 control-label">Your Email*:</label>
+     				 <div class="col-sm-10 col-md-9">
 							<div class='form-group'>
-								<input type="email" name="email" size="35" ng-model="emailBody.from" required><br>
+								<input type="email" name="email" size="30" ng-model="emailBody.from" required><br>
 								<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">Your Email is required.</p>
 							</div>
 							</div>
 					</div><br>
 
 					<div class='form-group'>
-						<label for="subject" class="col-sm-3 control-label">Subject*:</label>
-     				 <div class="col-sm-9">
-     				 	<input type="text" name="subject" size="35" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
+						<label for="subject" class="col-sm-2 col-md-3 control-label">Subject*:</label>
+     				 <div class="col-sm-10 col-md-9">
+     				 	<input type="text" name="subject" size="30" ng-model="emailBody.subject"  ng-minlength="2" ng-maxlength="50"required><br>
 							<p ng-show="contactForm.subject.$invalid && !contactForm.subject.$pristine" class="help-block">Please include a subject</p>
 						</div>
 					</div><br><br>
 
 
 					<div class='form-group'>
-						<label for="content" class="col-sm-3 control-label">Feedback*:</label>
-     				 <div class="col-sm-9">
-								<textarea rows="4" cols="40" name="content"  ng-model='emailBody.text'></textarea>
+						<label for="content" class="col-sm-2 col-md-3 control-label">Feedback*:</label>
+     				 <div class="col-sm-10 col-md-9">
+								<textarea rows="4" cols="30" name="content"  ng-model='emailBody.text'></textarea>
 								<p ng-show="contactForm.content.$invalid && !contactForm.content.$pristine" class="help-block">Include a body</p>
 						</div>
 					</div><br><br>
 				</form><br><br>
 					<div class='panel-footer clearfix panel-heading'>
 						<div class='pull right'>
-							<input type='Submit' ng-disabled="contactForm.$invalid" ng-click='sendEmail()' value='send Feedback'>
+							<input type='Submit' ng-disabled="contactForm.$invalid" ng-click='sendEmail()' value='Send Feedback'>
 						</div>
 					</div>
 				

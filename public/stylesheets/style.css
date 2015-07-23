@@ -9,8 +9,8 @@
   font-size: 20px;
   text-align: left;
 }
-.footerText2{
-  text-align: right;
+.footerCopywright{
+  text-align: center;
 }
 body {
   background-image: url('http://res.cloudinary.com/yasir/image/upload/v1436192385/homeimageBlur_gm8ku7.jpg');
