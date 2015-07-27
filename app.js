@@ -2,7 +2,7 @@
 
 
 /**
- * module dependencies.
+ * Module dependencies.
  */
 var express = require('express');
 var http = require('http');
