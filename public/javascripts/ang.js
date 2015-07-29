@@ -13,10 +13,10 @@ myApp.config(['$routeProvider',
         templateUrl: '/views/menpage.html',
         controller: 'game'
       }).
-      when('/women', {
-        templateUrl: '/views/womenpage.html',
-        controller: 'game2'
-      }).
+      // when('/women', {
+      //   templateUrl: '/views/womenpage.html',
+      //   controller: 'game2'
+      // }).
       when('/about', {
         templateUrl: '/views/about.html'
       }).
@@ -370,12 +370,12 @@ myApp.controller('game7',['$scope','$http','$location',"$route",
 angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) {
   $scope.myInterval = 5000;
   var slides = $scope.slides = [];
-  $scope.images =["/v1436192366/men_ean5ub.jpg","/v1436192379/women_kowhdr.jpg"];
+  $scope.images =["/v1436192366/men_ean5ub.jpg","/v1436192369/men2_qqrtbq.jpg"];///v1436192379/women_kowhdr.jpg"];
   $scope.addSlide = function() {
     for(var i=0; i<$scope.images.length; i++){
       $scope.newWidth = $scope.images[i];
     slides.push({
-      image: 'http://res.cloudinary.com/yasir/image/upload' + $scope.newWidth,
+      image: 'http://res.cloudinary.com/yasir/image/upload/c_scale,h_500,w_800' + $scope.newWidth,
       text: ['The Guys,','The Ladies'][slides.length % 2] + ' ' +
         ['after a resounding victory.', 'team.'][slides.length % 2]
     });
@@ -384,7 +384,6 @@ angular.module('ui.bootstrap').controller('CarouselDemoCtrl', function ($scope) 
       $scope.addSlide();
   }
 });
-
 
 
 
