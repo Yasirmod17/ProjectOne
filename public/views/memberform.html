@@ -41,27 +41,24 @@ p{
     <label for="fname" class="col-sm-2 control-label">First Name* :</label>
     <div class="col-sm-10 ">
       <input type="text" name="fname" size='40' ng-model="user.fname"  ng-minlength="2" ng-maxlength="20"required>
-   
+    </div>
       <p ng-show="userForm.fname.$invalid && !userForm.fname.$pristine" class="help-block">At least 2 characters, at most 20</p>
-       </div>
   </div><br><br>
 
   <div class='form-group '>
     <label for="lname" class="col-sm-2 control-label">Last Name* :</label>
     <div class="col-sm-10">
       <input type="text" name="lname" size='40' ng-model="user.lname"  ng-minlength="2" ng-maxlength="20"required>
-   
+    </div>
      <p ng-show="userForm.lname.$invalid && !userForm.lname.$pristine" class="help-block">At least 2 characters, at most 20</p>
-      </div>
   </div><br>
 
   <div class='form-group '>
     <label for="classyear" class="col-sm-2 control-label">Class Year* :</label>
     <div class="col-sm-10"> 
       <input type="text" name="classyear"  size='40' ng-model="user.classyear" required>
-   
+    </div>
       <p ng-show="userForm.classyear.$invalid && !userForm.classyear.$pristine" class="help-block">Your ClassYear is required.</p>
-       </div>
   </div><br>
 
 
@@ -127,9 +124,8 @@ p{
         <option value='men'>Men</option>
         <option value='women'>Women</option>
       </select>
-    
+    </div>
      <p ng-show="userForm.team.$invalid && !userForm.team.$pristine" class="help-block">You have to specify a team.</p>
-     </div>
   </div><br>
 
 
