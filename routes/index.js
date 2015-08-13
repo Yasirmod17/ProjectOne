@@ -32,7 +32,7 @@ function splitPlayers(player){
 
 	}
 }
-
+//get captain ligin info
 function getCaptain(){
 	var captains = mongoose.model('captain')
   var things= captains.find().exec(function(err, data) {
