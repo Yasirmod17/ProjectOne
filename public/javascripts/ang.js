@@ -112,6 +112,14 @@ myApp.factory('femalePlayers', function($http) {
 });
 
 
+myApp.controller('year',['$scope',
+  function($scope){
+    var time = new Date();
+    var this_year = time.getFullYear();
+    $scope.this_year = this_year
+
+  }]);
+
 
 myApp.controller('game', ['$scope', 'malePlayers',
   function($scope, malePlayers) {
